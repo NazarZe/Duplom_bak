@@ -203,7 +203,7 @@ try:
                     model = pickle.load(f)
                 print(f"[INFO] Модель (MAT) {name} завантажено з диску.")
             else:
-                print(f"\n Навчання моделі (MAT): {name}")
+                print(f"\n Навчання  моделі (MAT): {name}")
                 model.fit(train_data, train_labels)
                 with open(model_path, "wb") as f:
                     pickle.dump(model, f)
