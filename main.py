@@ -87,126 +87,16 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test, feature_name):
         results.append((name, acc, duration))
     return results
 
-# Predict single image
-def predict_image(model_path, scaler_path, feature_model, preprocess_fn, image_path, class_names):
-    img = load_img(image_path, target_size=IMG_SIZE)
-    img_arr = img_to_array(img)
-    img_arr = np.expand_dims(img_arr, axis=0)
-    features = feature_model.predict(preprocess_fn(img_arr))
-    with open(model_path, 'rb') as f:
-        model = pickle.load(f)
-    with open(scaler_path, 'rb') as f:
-        scaler = pickle.load(f)
-    features_scaled = scaler.transform(features)
-    prediction = model.predict(features_scaled)
-    predicted_class = class_names[int(prediction[0])]
-    print(f"🔮 Передбачена порода: {predicted_class}")
-    return predicted_class
-
-# MAIN
-X, y, class_names = load_images_and_labels(DATA_DIR, IMG_SIZE, BATCH_LIMIT_PER_CLASS)
-X_train_img, X_test_img, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
-
-cnn_models = {
-    "ResNet50": (ResNet50(weights="imagenet", include_top=False, pooling="avg", input_shape=IMG_SIZE + (3,)), resnet_preprocess),
-    "MobileNetV2": (MobileNetV2(weights="imagenet", include_top=False, pooling="avg", input_shape=IMG_SIZE + (3,)), mobilenet_preprocess),
-    "EfficientNetB0": (EfficientNetB0(weights="imagenet", include_top=False, pooling="avg", input_shape=IMG_SIZE + (3,)), efficientnet_preprocess),
-}
-
-all_results = []
-for cnn_name, (cnn_model, preprocess_fn) in cnn_models.items():
-    print(f"\n[INFO] Extracting features with {cnn_name}...")
-    start_time = time.time()
-    X_train_feat = extract_features(cnn_model, preprocess_fn, X_train_img)
-    X_test_feat = extract_features(cnn_model, preprocess_fn, X_test_img)
-    feature_time = time.time() - start_time
-    logging.info(f"{cnn_name}: Feature extraction time: {feature_time:.2f}s")
-
-    results = train_and_evaluate_models(X_train_feat, X_test_feat, y_train, y_test, cnn_name)
-    for model_name, acc, model_time in results:
-        all_results.append({
-            "FeatureExtractor": cnn_name,
-            "Model": model_name,
-            "Accuracy": acc,
-            "TrainTime": model_time,
-            "FeatureGenTime": feature_time
-        })
-
-
-
-
-try:
-    print("\n[INFO] Завантаження попередньо обчислених ознак з .mat")
-    train_raw = scipy.io.loadmat('train_data.mat')['train_data']
-    test_raw = scipy.io.loadmat('test_data.mat')['test_data']
-    train_labels = scipy.io.loadmat('train_list.mat')['labels'].flatten()
-    test_labels = scipy.io.loadmat('test_list.mat')['labels'].flatten()
-
-    # 🔽 Фільтрація лише 10 перших класів
-    train_mask = train_labels < 10
-    test_mask = test_labels < 10
-
-    train_data = train_raw[train_mask][:3000]
-    test_data = test_raw[test_mask][:1000]
-    train_labels = train_labels[train_mask][:3000]
-    test_labels = test_labels[test_mask][:1000]
-
-    print("\n[INFO] Навчання моделей на .mat ознаках (класи 0–9)")
-
-    scaler = StandardScaler()
-    train_data = scaler.fit_transform(train_data)
-    test_data = scaler.transform(test_data)
-    with open("scaler_mat.pkl", "wb") as f:
-        pickle.dump(scaler, f)
-
-    models = {
-        "LinearSVC": SVC(kernel='linear'),
-        "LogisticRegression": MLPClassifier(hidden_layer_sizes=(50,), max_iter=200, random_state=42),
-        "ExtraTrees": RandomForestClassifier(n_estimators=50, random_state=42)
-    }
-
-    mat_results = []
-    for name, model in models.items():
-        model_path = f"model_MAT_{name}.pkl"
-        if os.path.exists(model_path):
-            with open(model_path, "rb") as f:
-                model = pickle.load(f)
-            print(f"[INFO] Модель (MAT) {name} завантажено з диску.")
-        else:
-            print(f"\n🔍 Навчання моделі (MAT): {name}")
-            model.fit(train_data, train_labels)
-            with open(model_path, "wb") as f:
-                pickle.dump(model, f)
-        predictions = model.predict(test_data)
-        acc = accuracy_score(test_labels, predictions)
-        print(f"📈 Точність (MAT): {acc:.4f}")
-        print("📋 Звіт (MAT):")
-        print(classification_report(test_labels, predictions, zero_division=0))
-        logging.info(f"MAT-{name}: Accuracy={acc:.4f}")
-        mat_results.append({
-            "FeatureExtractor": "Stanford-MAT",
-            "Model": name,
-            "Accuracy": acc,
-            "TrainTime": 0,
-            "FeatureGenTime": 0
-        })
-    all_results.extend(mat_results)
-
-except Exception as e:
-    print("[WARNING] Не вдалося завантажити або обробити .mat файли:", e)
-    logging.warning("Помилка при роботі з .mat файлами: " + str(e))
-
-
+# Predict all models
 def predict_all_models(image_path, class_names):
-    print(f"\n📷 Класифікація зображення {image_path} усіма моделями...\n")
+    print(f"\n Класифікація зображення {image_path} усіма моделями...\n")
     img = load_img(image_path, target_size=IMG_SIZE)
     img_arr = img_to_array(img)
     img_arr = np.expand_dims(img_arr, axis=0)
 
-    # CNN-базовані моделі
     for cnn_name, (cnn_model, preprocess_fn) in cnn_models.items():
         try:
-            print(f"🧠 {cnn_name}")
+            print(f" {cnn_name}")
             features = cnn_model.predict(preprocess_fn(img_arr), verbose=0)
             scaler_path = f"scaler_{cnn_name}.pkl"
             with open(scaler_path, "rb") as f:
@@ -216,7 +106,7 @@ def predict_all_models(image_path, class_names):
             for model_name in ["SVM", "MLP", "RandomForest"]:
                 model_path = f"model_{cnn_name}_{model_name}.pkl"
                 if not os.path.exists(model_path):
-                    print(f"⚠️ Модель {model_name} не знайдено.")
+                    print(f"⚠️ Модель {model_name} не знайдена.")
                     continue
                 with open(model_path, "rb") as f:
                     model = pickle.load(f)
@@ -226,9 +116,8 @@ def predict_all_models(image_path, class_names):
         except Exception as e:
             print(f"❗ Помилка при класифікації з {cnn_name}-{model_name}: {e}")
 
-    # MAT-модель
     try:
-        print("\n🧠 Stanford-MAT модель (ExtraTrees)")
+        print("\n Stanford-MAT модель (ExtraTrees)")
         with open("model_MAT_ExtraTrees.pkl", "rb") as f:
             model = pickle.load(f)
         with open("scaler_mat.pkl", "rb") as f:
@@ -241,6 +130,102 @@ def predict_all_models(image_path, class_names):
     except Exception as e:
         print(f"❗ Помилка у MAT-класифікації: {e}")
 
+# MAIN
+X_train_img = X_test_img = y_train = y_test = class_names = None
+if os.path.exists(DATA_DIR):
+    X, y, class_names = load_images_and_labels(DATA_DIR, IMG_SIZE, BATCH_LIMIT_PER_CLASS)
+    X_train_img, X_test_img, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
+else:
+    print(f"[WARNING] Папка '{DATA_DIR}' не знайдена. Завантаження зображень пропущено.")
+    class_names = [f"Class {i}" for i in range(NUM_CLASSES)]
+
+cnn_models = {
+    "ResNet50": (ResNet50(weights="imagenet", include_top=False, pooling="avg", input_shape=IMG_SIZE + (3,)), resnet_preprocess),
+    "MobileNetV2": (MobileNetV2(weights="imagenet", include_top=False, pooling="avg", input_shape=IMG_SIZE + (3,)), mobilenet_preprocess),
+    "EfficientNetB0": (EfficientNetB0(weights="imagenet", include_top=False, pooling="avg", input_shape=IMG_SIZE + (3,)), efficientnet_preprocess),
+}
+
+all_results = []
+if X_train_img is not None:
+    for cnn_name, (cnn_model, preprocess_fn) in cnn_models.items():
+        print(f"\n[INFO] Extracting features with {cnn_name}...")
+        start_time = time.time()
+        X_train_feat = extract_features(cnn_model, preprocess_fn, X_train_img)
+        X_test_feat = extract_features(cnn_model, preprocess_fn, X_test_img)
+        feature_time = time.time() - start_time
+        logging.info(f"{cnn_name}: Feature extraction time: {feature_time:.2f}s")
+
+        results = train_and_evaluate_models(X_train_feat, X_test_feat, y_train, y_test, cnn_name)
+        for model_name, acc, model_time in results:
+            all_results.append({
+                "FeatureExtractor": cnn_name,
+                "Model": model_name,
+                "Accuracy": acc,
+                "TrainTime": model_time,
+                "FeatureGenTime": feature_time
+            })
+
+try:
+    if all(os.path.exists(f) for f in ['train_data.mat', 'test_data.mat', 'train_list.mat', 'test_list.mat']):
+        print("\n[INFO] Завантаження попередньо обчислених ознак з .mat")
+        train_raw = scipy.io.loadmat('train_data.mat')['train_data']
+        test_raw = scipy.io.loadmat('test_data.mat')['test_data']
+        train_labels = scipy.io.loadmat('train_list.mat')['labels'].flatten()
+        test_labels = scipy.io.loadmat('test_list.mat')['labels'].flatten()
+
+        #  Фільтрація лише 10 перших класів
+        train_mask = train_labels < 10
+        test_mask = test_labels < 10
+
+        train_data = train_raw[train_mask][:3000]
+        test_data = test_raw[test_mask][:1000]
+        train_labels = train_labels[train_mask][:3000]
+        test_labels = test_labels[test_mask][:1000]
+
+        print("\n[INFO] Навчання моделей на .mat ознаках (класи 0–9)")
+
+        scaler = StandardScaler()
+        train_data = scaler.fit_transform(train_data)
+        test_data = scaler.transform(test_data)
+        with open("scaler_mat.pkl", "wb") as f:
+            pickle.dump(scaler, f)
+
+        models = {
+            "LinearSVC": SVC(kernel='linear'),
+            "LogisticRegression": MLPClassifier(hidden_layer_sizes=(50,), max_iter=200, random_state=42),
+            "ExtraTrees": RandomForestClassifier(n_estimators=50, random_state=42)
+        }
+
+        for name, model in models.items():
+            model_path = f"model_MAT_{name}.pkl"
+            if os.path.exists(model_path):
+                with open(model_path, "rb") as f:
+                    model = pickle.load(f)
+                print(f"[INFO] Модель (MAT) {name} завантажено з диску.")
+            else:
+                print(f"\n Навчання моделі (MAT): {name}")
+                model.fit(train_data, train_labels)
+                with open(model_path, "wb") as f:
+                    pickle.dump(model, f)
+            predictions = model.predict(test_data)
+            acc = accuracy_score(test_labels, predictions)
+            print(f" Точність (MAT): {acc:.4f}")
+            print(" Звіт (MAT):")
+            print(classification_report(test_labels, predictions, zero_division=0))
+            logging.info(f"MAT-{name}: Accuracy={acc:.4f}")
+            all_results.append({
+                "FeatureExtractor": "Stanford-MAT",
+                "Model": name,
+                "Accuracy": acc,
+                "TrainTime": 0,
+                "FeatureGenTime": 0
+            })
+    else:
+        print("[WARNING] Один або кілька .mat файлів не знайдено. Блок MAT пропущено.")
+        logging.warning("Пропущено обробку .mat файлів: деякі з них відсутні.")
+except Exception as e:
+    print("[WARNING] Не вдалося обробити .mat файли:", e)
+    logging.warning("Помилка при роботі з .mat файлами: " + str(e))
 
 
 # Save results to CSV
@@ -275,4 +260,3 @@ plt.savefig("feature_time_comparison.png")
 plt.show()
 
 predict_all_models("MyDog.jpg", class_names)
-
