@@ -1,0 +1,152 @@
+2025-05-15 20:50:51,550 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 20:51:33,239 - INFO - ResNet50: Feature extraction time: 38.70s
+2025-05-15 20:51:33,402 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.13s
+2025-05-15 20:51:33,418 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 20:51:33,437 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.00s
+2025-05-15 20:51:48,914 - INFO - MobileNetV2: Feature extraction time: 15.46s
+2025-05-15 20:51:48,996 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.05s
+2025-05-15 20:51:49,006 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 20:51:49,027 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 20:52:11,165 - INFO - EfficientNetB0: Feature extraction time: 22.14s
+2025-05-15 20:52:11,215 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 20:52:11,238 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 20:52:11,267 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 21:02:39,913 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 21:03:20,599 - INFO - ResNet50: Feature extraction time: 37.77s
+2025-05-15 21:03:20,722 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.09s
+2025-05-15 21:03:20,733 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 21:03:20,755 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 21:03:35,624 - INFO - MobileNetV2: Feature extraction time: 14.87s
+2025-05-15 21:03:35,689 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.04s
+2025-05-15 21:03:35,698 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 21:03:35,717 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 21:03:55,039 - INFO - EfficientNetB0: Feature extraction time: 19.32s
+2025-05-15 21:03:55,103 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.04s
+2025-05-15 21:03:55,116 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 21:03:55,137 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.00s
+2025-05-15 21:10:15,446 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 21:10:56,063 - INFO - ResNet50: Feature extraction time: 38.12s
+2025-05-15 21:10:56,189 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.11s
+2025-05-15 21:10:56,189 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 21:10:56,221 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.00s
+2025-05-15 21:11:10,931 - INFO - MobileNetV2: Feature extraction time: 14.71s
+2025-05-15 21:11:10,979 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.03s
+2025-05-15 21:11:11,003 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 21:11:11,020 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 21:11:30,108 - INFO - EfficientNetB0: Feature extraction time: 19.09s
+2025-05-15 21:11:30,161 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 21:11:30,167 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 21:11:30,183 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 21:11:48,330 - INFO - MAT-SVM: Accuracy=0.7200
+2025-05-15 21:11:52,495 - INFO - MAT-MLP: Accuracy=0.5900
+2025-05-15 21:11:53,895 - INFO - MAT-Random Forest: Accuracy=0.6800
+2025-05-15 21:18:32,375 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 21:19:09,739 - INFO - ResNet50: Feature extraction time: 34.57s
+2025-05-15 21:19:09,851 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.08s
+2025-05-15 21:19:09,860 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 21:19:09,876 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 21:19:23,732 - INFO - MobileNetV2: Feature extraction time: 13.85s
+2025-05-15 21:19:23,787 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.04s
+2025-05-15 21:19:23,793 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 21:19:23,807 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 21:19:41,541 - INFO - EfficientNetB0: Feature extraction time: 17.73s
+2025-05-15 21:19:41,592 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 21:19:41,599 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 21:19:41,615 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 21:32:28,472 - INFO - MAT-LinearSVC: Accuracy=0.3950
+2025-05-15 21:34:32,581 - INFO - MAT-LogisticRegression: Accuracy=0.3560
+2025-05-15 21:35:12,213 - INFO - MAT-ExtraTrees: Accuracy=0.2310
+2025-05-15 21:44:24,729 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 21:45:01,018 - INFO - ResNet50: Feature extraction time: 33.84s
+2025-05-15 21:45:01,133 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.09s
+2025-05-15 21:45:01,140 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 21:45:01,156 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 21:45:14,255 - INFO - MobileNetV2: Feature extraction time: 13.10s
+2025-05-15 21:45:14,308 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.03s
+2025-05-15 21:45:14,315 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 21:45:14,330 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 21:45:31,185 - INFO - EfficientNetB0: Feature extraction time: 16.85s
+2025-05-15 21:45:31,238 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 21:45:31,246 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 21:45:31,261 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 21:47:59,765 - INFO - MAT-LinearSVC: Accuracy=0.3950
+2025-05-15 21:47:59,817 - INFO - MAT-LogisticRegression: Accuracy=0.3560
+2025-05-15 21:47:59,894 - INFO - MAT-ExtraTrees: Accuracy=0.2310
+2025-05-15 22:01:59,858 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 22:02:39,439 - INFO - ResNet50: Feature extraction time: 36.39s
+2025-05-15 22:02:39,585 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.12s
+2025-05-15 22:02:39,593 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 22:02:39,611 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 22:02:53,914 - INFO - MobileNetV2: Feature extraction time: 14.30s
+2025-05-15 22:02:53,970 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.05s
+2025-05-15 22:02:53,977 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 22:02:53,990 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 22:03:12,707 - INFO - EfficientNetB0: Feature extraction time: 18.72s
+2025-05-15 22:03:12,765 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 22:03:12,772 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 22:03:12,787 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 22:03:27,660 - WARNING - Помилка при роботі з .mat файлами: X has 300 features, but SVC is expecting 12000 features as input.
+2025-05-15 22:10:56,253 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 22:11:36,965 - INFO - ResNet50: Feature extraction time: 37.94s
+2025-05-15 22:11:37,095 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.10s
+2025-05-15 22:11:37,102 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 22:11:37,119 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 22:11:53,306 - INFO - MobileNetV2: Feature extraction time: 16.19s
+2025-05-15 22:11:53,372 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.04s
+2025-05-15 22:11:53,389 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 22:11:53,405 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.00s
+2025-05-15 22:12:12,356 - INFO - EfficientNetB0: Feature extraction time: 18.95s
+2025-05-15 22:12:12,409 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 22:12:12,416 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 22:12:12,431 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 22:13:45,669 - INFO - MAT-LinearSVC: Accuracy=0.4885
+2025-05-15 22:14:01,837 - INFO - MAT-LogisticRegression: Accuracy=0.4449
+2025-05-15 22:14:06,691 - INFO - MAT-ExtraTrees: Accuracy=0.3692
+2025-05-15 22:23:07,760 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 22:23:45,332 - INFO - ResNet50: Feature extraction time: 34.94s
+2025-05-15 22:23:45,453 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.09s
+2025-05-15 22:23:45,463 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 22:23:45,485 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 22:23:59,696 - INFO - MobileNetV2: Feature extraction time: 14.21s
+2025-05-15 22:23:59,790 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.06s
+2025-05-15 22:23:59,799 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 22:23:59,821 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.00s
+2025-05-15 22:24:16,909 - INFO - EfficientNetB0: Feature extraction time: 17.09s
+2025-05-15 22:24:16,978 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.05s
+2025-05-15 22:24:16,987 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 22:24:17,006 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 22:25:02,557 - INFO - MAT-LinearSVC: Accuracy=0.4885
+2025-05-15 22:25:02,595 - INFO - MAT-LogisticRegression: Accuracy=0.4449
+2025-05-15 22:25:02,637 - INFO - MAT-ExtraTrees: Accuracy=0.3692
+2025-05-15 22:26:20,541 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 22:26:57,039 - INFO - ResNet50: Feature extraction time: 33.97s
+2025-05-15 22:26:57,157 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.09s
+2025-05-15 22:26:57,167 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 22:26:57,187 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.01s
+2025-05-15 22:27:10,277 - INFO - MobileNetV2: Feature extraction time: 13.09s
+2025-05-15 22:27:10,335 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.04s
+2025-05-15 22:27:10,345 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 22:27:10,361 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 22:27:26,910 - INFO - EfficientNetB0: Feature extraction time: 16.55s
+2025-05-15 22:27:26,966 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.03s
+2025-05-15 22:27:26,974 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 22:27:26,993 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 22:28:10,662 - INFO - MAT-LinearSVC: Accuracy=0.4885
+2025-05-15 22:28:10,698 - INFO - MAT-LogisticRegression: Accuracy=0.4449
+2025-05-15 22:28:10,739 - INFO - MAT-ExtraTrees: Accuracy=0.3692
+2025-05-15 22:35:40,162 - INFO - Завантажено 1000 зображень з 10 класів
+2025-05-15 22:36:24,407 - INFO - ResNet50: Feature extraction time: 40.99s
+2025-05-15 22:36:24,545 - INFO - ResNet50-SVM: Accuracy=0.9000, Time=0.10s
+2025-05-15 22:36:24,555 - INFO - ResNet50-MLP: Accuracy=0.8900, Time=0.00s
+2025-05-15 22:36:24,575 - INFO - ResNet50-RandomForest: Accuracy=0.9033, Time=0.02s
+2025-05-15 22:36:40,954 - INFO - MobileNetV2: Feature extraction time: 16.38s
+2025-05-15 22:36:40,997 - INFO - MobileNetV2-SVM: Accuracy=0.9133, Time=0.03s
+2025-05-15 22:36:41,021 - INFO - MobileNetV2-MLP: Accuracy=0.9133, Time=0.00s
+2025-05-15 22:36:41,041 - INFO - MobileNetV2-RandomForest: Accuracy=0.9267, Time=0.01s
+2025-05-15 22:36:59,953 - INFO - EfficientNetB0: Feature extraction time: 18.91s
+2025-05-15 22:37:00,018 - INFO - EfficientNetB0-SVM: Accuracy=0.9233, Time=0.04s
+2025-05-15 22:37:00,027 - INFO - EfficientNetB0-MLP: Accuracy=0.9100, Time=0.00s
+2025-05-15 22:37:00,051 - INFO - EfficientNetB0-RandomForest: Accuracy=0.9133, Time=0.01s
+2025-05-15 22:37:45,481 - INFO - MAT-LinearSVC: Accuracy=0.4885
+2025-05-15 22:37:45,516 - INFO - MAT-LogisticRegression: Accuracy=0.4449
+2025-05-15 22:37:45,558 - INFO - MAT-ExtraTrees: Accuracy=0.3692
